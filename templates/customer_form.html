@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Sales Entry</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #d3cce3, #e9e4f0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background-color: white;
+            padding: 25px 35px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+            width: 400px;
+        }
+        h2 {
+            text-align: center;
+            color: #4b0082;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+        input[readonly] {
+            background-color: #f0f0f0;
+        }
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            background-color: #6a0dad;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #4b0082;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Customer Sales Entry</h2>
+        <form action="/submit_sale" method="POST">
+            <label for="customer_type">Customer Type:</label>
+            
+
+
+            <select id="customer_type" name="customer_type" required>
+                <option value="">-- Select Type --</option>
+                <option value="Premium">Premium</option>
+                <option value="Member">Member</option>
+                <option value="Regular">Regular</option>
+                
+            </select>
+
+
+
+
+            <label for="product_category">Product Category:</label>
+            <select id="product_category" name="product_category" required>
+                <option value="">-- Select Category --</option>
+                <option value="Beauty & Personal Care">Beauty & Personal Care</option>
+                <option value="Clothing">Clothing</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Grocery">Grocery</option>
+                <option value="Home & Kitchen">Home & Kitchen</option>
+            </select>
+
+            <label for="unit_price">Unit Price:</label>
+            <input type="number" step="0.01" id="unit_price" name="unit_price" required>
+
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" required>
+
+            <label for="total">Total:</label>
+            <input type="number" id="total" name="total" readonly required>
+
+            <label for="full_name">Full Name:</label>
+            <input type="text" id="full_name" name="full_name" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        const unitPriceInput = document.getElementById('unit_price');
+        const quantityInput = document.getElementById('quantity');
+        const totalInput = document.getElementById('total');
+
+        function calculateTotal() {
+            const unitPrice = parseFloat(unitPriceInput.value) || 0;
+            const quantity = parseInt(quantityInput.value) || 0;
+            totalInput.value = (unitPrice * quantity).toFixed(2);
+        }
+
+        unitPriceInput.addEventListener('input', calculateTotal);
+        quantityInput.addEventListener('input', calculateTotal);
+    </script>
+
+</body>
+</html>
