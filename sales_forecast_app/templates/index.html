@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Inventory Management</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #dbeafe, #e0f2fe);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+      padding: 2rem 3rem;
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      max-width: 700px;
+      width: 100%;
+    }
+
+    h1 {
+      color: #4b0082;
+      margin-bottom: 30px;
+    }
+
+    #predictBtn {
+      padding: 12px 24px;
+      font-size: 18px;
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    #predictBtn:hover {
+      background-color: #1e40af;
+    }
+
+    .results-container {
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 1rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      width: 250px;
+      text-align: left;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #6a1b9a;
+    }
+
+    .centered {
+      text-align: center;
+      margin-top: 100px;
+      font-family: Arial, sans-serif;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #0057e7;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #0041b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📦 Inventory Management System</h1>
+    <button id="predictBtn">Predict Next Month's Sales</button>
+    <div class="results-container" id="results">
+      <!-- Forecast results will appear here -->
+    </div>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RFM Customer Segmentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #dbeafe, #e0f2fe);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1, h2 {
+            color: #4b0082;
+            margin-top: 30px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 16px;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #1e40af;
+        }
+
+        table {
+            margin-top: 30px;
+            border-collapse: collapse;
+            width: 90%;
+            max-width: 1000px;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: center;
+            border-bottom: 1px solid #ccc;
+        }
+
+        th {
+            background-color: #3b82f6;
+            color: white;
+        }
+
+        img {
+            margin-top: 30px;
+            width: 600px;
+            border: 2px solid #3b82f6;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>RFM Customer Segmentation</h1>
+    <form method="POST">
+        <button type="submit">Run RFM Analysis</button>
+    </form>
+
+    {% if show_result %}
+        <h2>RFM Output Table</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>FullName</th>
+                    <th>Recency</th>
+                    <th>Frequency</th>
+                    <th>Monetary</th>
+                    <th>Cluster</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in table_data %}
+                <tr>
+                    <td>{{ row.FullName }}</td>
+                    <td>{{ row.Recency }}</td>
+                    <td>{{ row.Frequency }}</td>
+                    <td>{{ row.Monetary }}</td>
+                    <td>{{ row.Cluster }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h2>Cluster Visualization</h2>
+        <img src="{{ url_for('static', filename='rfm_plot.png') }}" alt="RFM Plot">
+    {% endif %}
+</body>
+</html>

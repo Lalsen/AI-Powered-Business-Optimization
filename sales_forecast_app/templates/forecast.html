@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sales Forecast</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #dbeafe, #e0f2fe);
+            font-family: 'Segoe UI', sans-serif;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+        }
+        h1 {
+            color: #4b0082;
+            margin-bottom: 30px;
+        }
+        form {
+            margin-bottom: 30px;
+        }
+        button {
+            padding: 12px 25px;
+            font-size: 16px;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #1e40af;
+        }
+        .forecast-result {
+            font-size: 22px;
+            color: #333;
+            margin-top: 20px;
+        }
+        img {
+            margin-top: 30px;
+            max-width: 85%;
+            height: auto;
+            border: 2px solid #3b82f6;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>📈 ARIMA Sales Forecast</h1>
+
+    <form action="/run_forecast" method="get">
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction %}
+    <div class="forecast-result">
+        🔷 ARIMA Predicted Sales for Next Month: <strong>{{ prediction }}</strong>
+    </div>
+    {% endif %}
+
+    {% if plot_url %}
+        <img src="{{ plot_url }}" alt="Forecast Plot">
+    {% endif %}
+</body>
+</html>
