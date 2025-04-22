@@ -1,0 +1,6 @@
+ProductCategory,Model,MAPE,Predicted Monthly Sales,Daily Sales,Safety Stock,Reorder Level,Restock Quantity,Status,Urgency,Order Value,Recommendation,Adjusted Lead Time
+Beauty & Personal Care,"ARIMA(0, 1, 2)",1.9,24902.18,830.07,2040.61,4530.83,9061.67,Reorder Now,High,2313715.23,Place order for 9061 units immediately ($2313715.23),3
+Clothing,"ARIMA(1, 1, 1)",3.46,24381.58,812.72,3235.64,5673.8,11347.6,Reorder Now,High,2897948.92,Place order for 11347 units immediately ($2897948.92),3
+Electronics,"ARIMA(2, 1, 0)",1.93,25018.31,833.94,2165.05,4666.89,9333.77,Reorder Now,High,2379831.79,Place order for 9333 units immediately ($2379831.79),3
+Grocery,"ARIMA(0, 1, 2)",2.04,24212.76,807.09,1790.89,4212.17,8424.34,Reorder Now,High,2150227.72,Place order for 8424 units immediately ($2150227.72),3
+Home & Kitchen,"ARIMA(2, 1, 0)",2.61,25727.22,857.57,2709.97,5282.69,10565.38,Reorder Now,High,2693433.17,Place order for 10565 units immediately ($2693433.17),3
